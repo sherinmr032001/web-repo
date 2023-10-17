@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webpage</title>
+
+
+
+<style>
+
+        /* Add some basic styles for the header */
+        .header {
+
+            text-align: center; /* Center align text */
+            padding: 20px; /* Add some padding to the header */
+   font-family: sans-serif, "Helvetica Neue", "Lucida Grande", Arial;
+   color: #ff1100
+        }
+
+        /* Add some basic styles for the navigation bar */
+        .navbar {
+            background-color: #ff1100; /* Background color for the navbar */
+            overflow: hidden; /* Ensure content doesn't overflow */
+            font-family: sans-serif, "Helvetica Neue", "Lucida Grande", Arial;
+            display: flex; /* Use flexbox to center-align and evenly space items */
+            justify-content: space-between; /* Distribute items evenly along the navbar */
+            align-items: center; /* Vertically center items */
+            padding: 10px; /* Add padding to the navbar */
+        }
+
+        /* Style for the logo */
+        .navbar img {
+            width: 100px; /* Adjust the width of the logo as needed */
+            height: auto; /* Maintain aspect ratio */
+            padding: 10px; /* Add some padding to the logo */
+        }
+
+        /* Style for the navigation links (you can customize this further) */
+        .navbar a {
+            color: white; /* Text color */
+            text-align: center; /* Center align text */
+            padding: 14px 16px; /* Padding for spacing */
+            text-decoration: none; /* Remove underlines from links */
+        }
+
+        /* Style for the navigation links when hovered over */
+        .navbar a:hover {
+           
+            color: black; /* Change text color on hover */
+        }
+
+        /* Style for the search bar container */
+        .search-bar {
+            display: flex; /* Allow input and button to align horizontally */
+            margin-left: auto; /* Move the search bar to the right */
+        }
+
+        /* Style for the search input */
+        .search-bar input[type="text"] {
+            width: 150px; /* Adjust the width of the input */
+            padding: 8px; /* Add some padding to the input */
+            border: none; /* Remove the input border */
+            border-radius: 4px; /* Add a bit of rounded corners */
+        }
+
+        /* Style for the search button */
+        .search-bar button {
+            background-color: #333; /* Button background color */
+            color: white; /* Button text color */
+            border: none; /* Remove the button border */
+            border-radius: 4px; /* Add a bit of rounded corners */
+            padding: 8px 12px; /* Padding for the button */
+            cursor: pointer; /* Change cursor on hover */
+        }
+
+        /* Style for the image container below the navbar */
+        .image-container {
+            text-align: center; /* Center-align the image */
+            padding: 20px; /* Add padding to the image container */
+        }
+
+        /* Style for the image */
+        .image-container img {
+            max-width: 100%; /* Ensure the image doesn't exceed its container */
+        }
+
+        /* Style for the additional information text */
+        .additional-info {
+            text-align: center; /* Center-align the text */
+            font-family: sans-serif, "Helvetica Neue", "Lucida Grande", Arial;
+            padding: 20px; /* Add padding to the text container */
+        }
+
+        /* Style for the About heading */
+        .about-heading {
+            font-size: 24px; /* Adjust the font size as needed */
+   color: red;
+            margin-bottom: 10px; /* Add some spacing below the heading */
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .navbar a:not(:first-child) {
+                display: none;
+            }
+
+            .navbar a.icon {
+                float: right;
+                display: block;
+            }
+
+            .navbar.responsive {
+                position: relative;
+            }
+
+            .navbar.responsive .icon {
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+
+            .navbar.responsive a {
+                display: block;
+                text-align: left;
+            }
+
+            .search-bar {
+                margin-left: 0; /* Reset margin for the search bar */
+                margin-top: 10px; /* Add margin to separate search bar on smaller screens */
+            }
+        }
+
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 300px;
+  perspective: 1000px;
+  padding: 20px 30px 50px 70px;
+  border: 10px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: #ab2d29;
+  color: white;
+  margin: auto;
+}
+
+.flip-card-back {
+  background-color: white;
+  color: black;
+  transform: rotateY(180deg);
+}
+
+        /* Style for the card container */
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        /* Style for each card */
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+            width: calc(25% - 20px); /* Adjust the card width with equal spacing */
+            margin: 10px; /* Add margin for equal spacing between cards */
+            padding: 10px;
+            border: 1px solid #ccc;
+            box-sizing: border-box; /* Include padding and border in card width */
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+        }
+
+        .container {
+            padding: 2px 16px;
+        }
+
+        /* Clearfix to ensure proper alignment */
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+</style>
+</head>
+<body>
+
+<div class="header">
+    <img src="https://mgmits.ac.in/wp-content/themes/muthoot/images/MITS-LOGO-NEW.jpeg" alt="Muthoot<br>Institute of Technology & Science">
+    <p>A premier engineering college in the state, located at Kochi</p>
+</div>
+
+
+<div class="navbar">
+    <a href="#">HOME</a>
+    <a href="#about">ABOUT</a>
+    <a href="#">MITS</a>
+    <a href="#courses">DEPARTMENTS</a>
+    <a href="#">CONTACT</a>
+
+    <div class="search-bar">
+        <input type="text" placeholder="Search...">
+        <button type="submit">Search</button>
+    </div>
+</div>
+
+ <div class="image-container">
+    <img src="https://mgmits.ac.in/wp-content/uploads/2022/03/MITS-scaled.jpg" alt="MITS Campus">
+</div>
+
+<div class="additional-info">
+    <h2 class="about-heading" id="about">About</h2>
+    <p>Muthoot Institute of Technology and Science (MITS) is promoted by Muthoot M. George Institute of Technology, a Section 25 Company within the Muthoot Group. MITS is a self financing technical institution offering postgraduate and undergraduate engineering programmes, situated in the industrial suburb of Kochi, close to the Smart City and Info Park, approximately 15 kms from Vytilla Junction towards Muvattupuzha on the Cochin Madurai National Highway.</p>
+    <p>The promoters with their commanding presence in the domains of Financial Services, Hospitality, Healthcare, Renewable Energy and Information Technology, are committed to building MITS as a centre of excellence, focusing purely on merit. This “temple of learning” will provide to the students, state-of-the-art infrastructure, highly qualified and proficient teachers from various faculty of engineering and allied streams, embedded in a conducive environment where focus will be on their harmonious development.</p>
+</div>
+
+	<div class="card-container">
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <h1 style="text-align: center;">Vision</h1>
+    </div>
+    <div class="flip-card-back">  
+      <p>To be a centre of excellence for learning and research in engineering and technology, producing intellectually well-equipped and socially committed citizens possessing an ethical value system.</p>
+    </div>
+  </div>
+</div>
+
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <h1 style="text-align: center;">Mission</h1>
+    </div>
+    <div class="flip-card-back">  
+      <p>* Offer well-balanced programme of instruction, practical exercise and opportunities in technology.<br>
+
+* Foster innovation and ideation of technological solutions on sustainable basis.<br>
+
+* Nurture a value system in students and engender in them a spirit of inquiry.<br></p>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="additional-info">
+<h2 class="about-heading" id="courses">Programs Offered</h2>
+</div>
+<div class="card-container clearfix">
+    <div class="card">
+        <img src="https://static.thenounproject.com/png/3092041-200.png" alt="Avatar" style="width:20%">
+        <div class="container">
+            <h4><b>BTech</b></h4>
+            <p>Electronics and Communication Engineering</p>
+            <p>Total Seats: 60</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="https://static.thenounproject.com/png/4998338-200.png" alt="Civil" style="width:20%">
+        <div class="container">
+            <h4><b>BTech</b></h4>
+            <p>Civil Engineering</p>
+            <p>Total Seats: 60</p>
+        </div>
+    </div>
+
+<div class="card">
+  <img src="https://static.thenounproject.com/png/5268767-200.png" alt="EEE" style="width:20%">
+  <div class="container">
+    <h4><b>BTech</b></h4>
+    <p>Electrical and Electronics Engineering</p>
+    <p>Total Seats: 60</p>
+  </div>
+</div>
+
+<div class="card">
+  <img src="https://static.thenounproject.com/png/6131281-200.png" alt="Avatar" style="width:20%">
+  <div class="container">
+    <h4><b>BTech</b></h4>
+    <p>Artificial Intelligence and Data science</p>
+    <p>Total Seats: 60</p>
+  </div>
+</div>
+
+<div class="card">
+  <img src="https://static.thenounproject.com/png/3124551-200.png" alt="Avatar" style="width:20%">
+  <div class="container">
+    <h4><b>MCA</b></h4>  
+    <p>Total Seats: 60</p>
+  </div>
+</div>
+
+<div class="card">
+  <img src="https://static.thenounproject.com/png/2602256-200.png" alt="Avatar" style="width:20%">
+  <div class="container">
+    <h4><b>MTech</b></h4>
+    <p>Cyber Security</p>
+    <p>Total Seats: 12</p>
+  </div>
+</div>
+
+
+
+</div>
+
+</body>
+</html>
+
